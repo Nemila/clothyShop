@@ -5,7 +5,7 @@ export const Card = styled(Link)`
   display: inline-block;
   color: black;
   text-decoration: none;
-  border: 1px solid lightgrey;
+  border: 1px solid black;
 `;
 
 export const BannerContainer = styled.div`
@@ -34,12 +34,12 @@ export const CardBody = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid black;
   padding: 1rem;
 `;
 
 export const CardTitle = styled.h4`
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1.5em;
   text-overflow: ellipsis;
   overflow: hidden;

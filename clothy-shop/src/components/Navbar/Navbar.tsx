@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import NavItem from "./NavItem";
 import { Container, Nav, NavLogo, NavMenu } from "./Navbar.styled";
 
@@ -18,13 +19,23 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  let location = useLocation();
   const [scrolled, setScrolled] = useState(true);
 
   const handleScroll = (e: any) => {
     setScrolled(window.scrollY > 700 ? true : false);
   };
 
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setScrolled(false);
+      window.addEventListener("scroll", handleScroll);
+      return;
+    }
+    setScrolled(true);
+    window.addEventListener("scroll", handleScroll);
+  }, [location]);
+
   return (
     <Container scrolled={scrolled}>
       <Nav>
